@@ -32,10 +32,10 @@ export default function TopNav() {
         {/* Phone CTA */}
         <div className="flex gap-2 items-center shrink-0">
           <a
-            href="tel:+447123456789"
+            href="tel:+4407982333351"
             className="text-body-md-regular text-[#00263f] tracking-[-0.14px] whitespace-nowrap"
           >
-            07123 456 789
+            0798 233 3351
           </a>
 
           <div className="bg-[#fde0b5] flex items-center p-[6px] rounded-[1000px] text-[#000910]">

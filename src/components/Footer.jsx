@@ -27,10 +27,10 @@ export default function Footer() {
               </p>
               <div className="flex flex-col gap-2 text-body-md-regular text-[#00263f]">
                 <a
-                  href="tel:+447123456789"
+                  href="tel:+447982333351"
                   className="text-body-md-regular text-[#00263f] tracking-[-0.14px] whitespace-nowrap"
                 >
-                  07123 456 789
+                  0798 233 3351
                 </a>
                 <a
                   href="mailto:info@bluedolphinexpress.co.uk"
