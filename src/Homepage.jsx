@@ -121,7 +121,7 @@ export default function Homepage() {
               label="0798 233 3351"
               hasLeftIcon
               leftIcon={<img src={WhatsAppIcon} alt="WhatsApp Logo" className="h-5 w-auto" />}
-              onClick={() => window.open('https://wa.me/447123456789', '_blank')}
+              onClick={() => window.open('https://wa.me/447982333351', '_blank')}
             />
           </div>
         </div>
