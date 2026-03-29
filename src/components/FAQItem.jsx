@@ -23,12 +23,12 @@ export default function FAQItem({ question, answer, defaultExpanded = false }) {
       ].join(' ')}
     >
       <div className="flex gap-4 items-center">
-        <p className="flex-1 text-body-lg-bold text-[#000910]">
+        <p className="flex-1 text-body-lg-bold text-[var(--text-primary)]">
           {question}
         </p>
         <span
           className={[
-            'shrink-0 w-5 h-5 flex items-center justify-center text-[#000910]',
+            'shrink-0 w-5 h-5 flex items-center justify-center text-[var(--text-primary)]',
             'transition-transform duration-300 ease-in-out',
             expanded ? 'rotate-45' : 'rotate-0',
           ].join(' ')}
@@ -43,7 +43,7 @@ export default function FAQItem({ question, answer, defaultExpanded = false }) {
         style={{ gridTemplateRows: expanded ? '1fr' : '0fr' }}
       >
         <div className="overflow-hidden">
-          <p className="text-body-md-regular text-[#000910] max-w-[564px] pb-1">
+          <p className="text-body-md-regular text-[var(--text-secondary)] max-w-[564px] pb-1">
             {answer}
           </p>
         </div>

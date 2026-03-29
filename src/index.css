@@ -1,9 +1,50 @@
 @import "tailwindcss";
 
 @theme {
+  /* Fonts */
   --font-family-anton: 'Anton', sans-serif;
   --font-family-inter: 'Inter', sans-serif;
   --font-family-sans: 'Inter', system-ui, sans-serif;
+
+  /* Primitive colours — generates bg-*, text-*, border-* utilities */
+  --color-blue-50: #eef8ff;
+  --color-blue-100: #dcf0ff;
+  --color-blue-200: #b2e2ff;
+  --color-blue-300: #6dcaff;
+  --color-blue-400: #20b2ff;
+  --color-blue-500: #00a6ff;
+  --color-blue-600: #008bdf;
+  --color-blue-700: #006db4;
+  --color-blue-800: #005b94;
+  --color-blue-900: #004b7e;
+  --color-blue-950: #002e51;
+
+  --color-grey-50: #f4f7f9;
+  --color-grey-100: #ebf0f4;
+  --color-grey-200: #dbe4ea;
+  --color-grey-300: #c5d2dc;
+  --color-grey-400: #adbccc;
+  --color-grey-500: #97a6bd;
+  --color-grey-600: #808eab;
+  --color-grey-700: #78839c;
+  --color-grey-800: #5a6479;
+  --color-grey-900: #4c5463;
+  --color-grey-950: #2d3139;
+
+  --color-orange-50: #fff8ed;
+  --color-orange-100: #feefd6;
+  --color-orange-200: #fde0b5;
+  --color-orange-300: #fbc276;
+  --color-orange-400: #f89e3f;
+  --color-orange-500: #f68119;
+  --color-orange-600: #e7660f;
+  --color-orange-700: #bf4d0f;
+  --color-orange-800: #983d14;
+  --color-orange-900: #7a3414;
+  --color-orange-950: #421808;
+
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000910;
 
   --font-size-heading-lg: 58px;
   --font-size-heading-md: 42px;
@@ -77,19 +118,33 @@
 }
 
 :root {
-  /* Blue Dolphin design tokens */
-  --text-on-brand: white;
-  --text-primary: #000910;
-  --text-secondary: #00263f;
-  --bg-tertiary: white;
-  --bg-accent-orange-default: #fde0b5;
-  --bg-accent-orange-hover: #f8c87a;
-  --bg-on-brand: white;
-  --bg-hero: #cdeafb;
-  --bg-services: #6e5e4c;
-  --bg-footer: #b1f2ff;
-  --border-primary: #e6eff5;
-  --color-link: #337eb1;
+  /* Semantic tokens — reference primitives from @theme */
+  --text-primary: var(--color-blue-950);
+  --text-secondary: var(--color-grey-950);
+  --text-tertiary: var(--color-grey-800);
+  --text-on-brand: var(--color-neutral-white);
+  --text-link: var(--color-blue-700);
+
+  --bg-primary: var(--color-neutral-white);
+  --bg-secondary: var(--color-blue-100);
+  --bg-tertiary: var(--color-neutral-white);
+  --bg-on-brand: var(--color-neutral-white);
+  --bg-brand: var(--color-blue-500);
+  --bg-button-primary: var(--color-blue-500);
+  --bg-button-on-brand: var(--color-neutral-white);
+  --bg-accent-orange-default: var(--color-orange-200);
+  --bg-accent-orange-hover: var(--color-orange-300);
+  --bg-accent-brown: #6e5e4c;
+  --bg-accent-light-blue: var(--color-blue-300);
+  --bg-disabled: var(--color-neutral-white);
+
+  --icon-primary: var(--color-blue-950);
+  --icon-secondary: var(--color-blue-300);
+  --icon-brand: var(--color-blue-950);
+  --icon-on-brand: var(--color-neutral-white);
+
+  --border-primary: var(--color-grey-100);
+
   --family-body: 'Inter', sans-serif;
   --family-heading: 'Anton', sans-serif;
 
