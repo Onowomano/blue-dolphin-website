@@ -1,0 +1,56 @@
+import Wordmark from "../assets/bd-banner.svg";
+
+export default function Footer() {
+  return (
+    <div className="p-[6px] w-full shrink-0">
+      <div className="bg-[#b1f2ff] rounded-[8px] p-6 flex flex-col gap-[300px]">
+        {/* Top footer content */}
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Services column */}
+            <div className="flex-1 flex flex-col gap-[18px]">
+              <p className="text-body-md-regular text-[#00263f]">
+                Services
+              </p>
+              <div className="flex flex-col gap-2 text-body-md-regular text-[#00263f]">
+                <p>Man &amp; Van</p>
+                <p>House Moves</p>
+                <p>Deliveries</p>
+                <p>Pickups</p>
+              </div>
+            </div>
+
+            {/* Contact column */}
+            <div className="flex-1 flex flex-col gap-[18px]">
+              <p className="text-body-md-regular text-[#00263f] tracking-[-0.14px]">
+                Contact
+              </p>
+              <div className="flex flex-col gap-2 text-body-md-regular text-[#00263f]">
+                <a
+                  href="tel:+447123456789"
+                  className="text-body-md-regular text-[#00263f] tracking-[-0.14px] whitespace-nowrap"
+                >
+                  07123 456 789
+                </a>
+                <a
+                  href="mailto:info@bluedolphinexpress.co.uk"
+                  className="text-body-md-regular text-[#00263f] tracking-[-0.14px] whitespace-nowrap"
+                >
+                  info@bluedolphinexpress.co.uk
+                </a>
+                <p>United Kingdom</p>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-body-md-regular text-[#00263f]">
+            2026 All rights reserved © Blue Dolphin Express
+          </p>
+        </div>
+
+        {/* Big wordmark */}
+        <img src={Wordmark} alt="Blue Dolphin Express" />
+      </div>
+    </div>
+  );
+}

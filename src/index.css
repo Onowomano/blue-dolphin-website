@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-anton: 'Anton', sans-serif;
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+
+  --font-size-heading-lg: 58px;
+  --font-size-heading-md: 42px;
+  --font-size-body-lg: 16px;
+  --font-size-body-md: 14px;
+  --font-size-body-sm: 12px;
+}
+
+@utility text-heading-lg {
+  font-family: 'Anton', sans-serif;
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -1.16px;
+}
+
+@utility text-heading-md {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: -0.84px;
+}
+
+@utility text-body-lg-regular {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+}
+
+@utility text-body-lg-bold {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+}
+
+@utility text-body-md-regular {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+}
+
+@utility text-body-md-bold {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+}
+
+@utility text-body-sm-regular {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+}
+
+@utility text-body-sm-bold {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+}
+
+:root {
+  /* Blue Dolphin design tokens */
+  --text-on-brand: white;
+  --text-primary: #000910;
+  --text-secondary: #00263f;
+  --bg-tertiary: white;
+  --bg-accent-orange-default: #fde0b5;
+  --bg-accent-orange-hover: #f8c87a;
+  --bg-on-brand: white;
+  --bg-hero: #cdeafb;
+  --bg-services: #6e5e4c;
+  --bg-footer: #b1f2ff;
+  --border-primary: #e6eff5;
+  --color-link: #337eb1;
+  --family-body: 'Inter', sans-serif;
+  --family-heading: 'Anton', sans-serif;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--text-primary);
+  background: white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+}
