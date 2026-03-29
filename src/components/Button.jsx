@@ -30,10 +30,10 @@ export default function Button({
       onClick={onClick}
       className={[
         'inline-flex items-center justify-center rounded-[9999px]',
-        'bg-[#fde0b5] text-[#000910]',
+        'bg-[var(--bg-accent-orange-default)] text-[var(--text-primary)]',
         "text-body-lg-bold",
         'transition-colors duration-150',
-        'hover:bg-[#f8c87a]',
+        'hover:bg-[var(--bg-accent-orange-hover)]',
         'disabled:opacity-50 disabled:cursor-not-allowed',
         sizes[size],
         className,
