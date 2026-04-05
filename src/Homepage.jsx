@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import TopNav from "./components/TopNav";
 import Button from "./components/Button";
 import ServiceCard from "./components/ServiceCard";
@@ -61,45 +62,43 @@ const SERVICES = [
   },
 ];
 
-const FAQS = [
-  {
-    question: "How much does a move cost?",
-    answer:
-      "Pricing depends on the size of the move, distance, and time required. Contact us for a quick, free quote with no obligation.",
-    defaultExpanded: true,
-  },
-  {
-    question: "Do you offer same-day or last-minute bookings?",
-    answer:
-      "Yes, we do our best to accommodate same-day and urgent requests depending on availability.",
-  },
-  {
-    question: "Are my items insured during the move?",
-    answer:
-      "We take every precaution to protect your belongings and handle all items with care. Contact us for details about coverage.",
-  },
-  {
-    question: "Do you help with loading and unloading?",
-    answer: "Yes, our team handles all the heavy lifting so you don't have to.",
-  },
-  {
-    question: "Can you collect items from stores or sellers?",
-    answer:
-      "Absolutely. We regularly pick up items from shops, warehouses, and online marketplaces.",
-  },
-  {
-    question: "Do I need to pack everything myself?",
-    answer:
-      "You can, but we can also assist with packing if needed—just let us know in advance.",
-  },
-  {
-    question: "What areas do you cover?",
-    answer:
-      "We operate across the UK, handling both local and long-distance moves.",
-  },
-];
+// Publish your sheet: File → Share → Publish to web → Sheet1 → CSV → Copy link
+const FAQS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRBrQmX_N6c90M5lqmOs0pPNJHFyoRlnOVf1SZsKRaHQhykHxKikmZ5Vu7TSqbdHLbe40ADrxxfp4-s/pub?output=csv'
+function parseCSV(text) {
+  const [headerLine, ...rows] = text.trim().split('\n')
+  const headers = headerLine.split(',').map((h) => h.replace(/"/g, '').trim().toLowerCase())
+
+  return rows.map((row) => {
+    const values = []
+    let current = ''
+    let inQuotes = false
+    for (const char of row) {
+      if (char === '"') { inQuotes = !inQuotes }
+      else if (char === ',' && !inQuotes) { values.push(current.trim()); current = '' }
+      else { current += char }
+    }
+    values.push(current.trim())
+    return Object.fromEntries(headers.map((h, i) => [h, (values[i] ?? '').replace(/"/g, '')]))
+  })
+}
 
 export default function Homepage() {
+  const [faqs, setFaqs] = useState([])
+  const [faqsLoading, setFaqsLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(FAQS_CSV_URL)
+      .then((res) => res.text())
+      .then((text) => {
+        const rows = parseCSV(text)
+        // Sheet row order is preserved — filter keeps original position
+        const live = rows.filter((r) => r.live?.toLowerCase() === 'yes')
+        setFaqs(live)
+      })
+      .catch(console.error)
+      .finally(() => setFaqsLoading(false))
+  }, [])
+
   return (
     <div className="bg-white min-h-screen w-full overflow-x-hidden">
       <TopNav />
@@ -220,14 +219,23 @@ export default function Homepage() {
             </h2>
 
             <div className="flex flex-col">
-              {FAQS.map((faq) => (
-                <FAQItem
-                  key={faq.question}
-                  question={faq.question}
-                  answer={faq.answer}
-                  defaultExpanded={faq.defaultExpanded}
-                />
-              ))}
+              {faqsLoading
+                ? Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="border-b border-[#e6eff5] py-6 flex flex-col gap-3">
+                      <div className="flex gap-4 items-center">
+                        <div className="h-4 bg-grey-100 rounded animate-pulse flex-1" />
+                        <div className="h-4 w-4 bg-grey-100 rounded animate-pulse shrink-0" />
+                      </div>
+                    </div>
+                  ))
+                : faqs.map((faq, i) => (
+                    <FAQItem
+                      key={faq.question}
+                      question={faq.question}
+                      answer={faq.answer}
+                      defaultExpanded={i === 0}
+                    />
+                  ))}
             </div>
           </div>
 
